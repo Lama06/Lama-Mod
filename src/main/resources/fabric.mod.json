@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "lamamod",
+  "version": "${version}",
+
+  "name": "Lama Mod",
+  "description": "Die Minecraft Mod des Lama Servers",
+  "authors": [
+    "Lama06"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Lama06/Lama-Mod",
+    "sources": "https://github.com/Lama06/Lama-Mod"
+  },
+
+  "license": "MIT",
+  "icon": "assets/lamamod/icon.png",
+
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "io.github.lama06.lamamod.LamaMod"
+    ]
+  },
+  "mixins": [
+    "lamamod.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "minecraft": "1.16.x"
+  },
+  "breaks": {
+    "wurst": "*"
+  }
+}
