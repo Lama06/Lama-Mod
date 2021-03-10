@@ -8,9 +8,9 @@ import java.time.format.DateTimeFormatter;
 public class TimeWidget extends AbstractTextWidget<TimeWidgetOptions> {
     @Override
     protected String getText(TimeWidgetOptions options) {
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern((options.date ? "dd.MM ": "") + "HH:mm" + (options.seconds ? ":ss" : ""));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern((options.date ? "dd.MM ": "") + "HH:mm" + (options.seconds ? ":ss" : ""));
         LocalDateTime now = LocalDateTime.now();
-        return "Zeit: " + formater.format(now);
+        return "Zeit: " + formatter.format(now);
     }
 
     @Override

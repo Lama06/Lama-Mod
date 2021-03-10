@@ -4,7 +4,6 @@ import net.minecraft.client.util.math.MatrixStack;
 
 /**
  * Sollte von allen Widgets erweitert werden, die nur Text darstellen
- * @param <T>
  */
 public abstract class AbstractTextWidget<T extends WidgetOptions> extends AbstractWidget<T> {
     /**

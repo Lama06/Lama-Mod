@@ -20,7 +20,5 @@ public class FpsWidget extends AbstractTextWidget<WidgetOptions> {
         Options options = Options.getOptions();
         options.fpsWidget = widgetOptions;
         Options.setOptions(options);
-
-        Util.sendMsgToPlayer("Setzt Widget Options");
     }
 }
