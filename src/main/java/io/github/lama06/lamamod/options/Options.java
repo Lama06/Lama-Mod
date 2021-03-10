@@ -19,6 +19,7 @@ public class Options {
     public WidgetOptions fpsWidget = new WidgetOptions(true, 20, 40);
     public WidgetOptions versionWidget = new WidgetOptions(true, 20, 60);
     public TimeWidgetOptions timeWidget = new TimeWidgetOptions(true, 20, 80, true, true);
+    public WidgetOptions keystrokesWidget = new WidgetOptions(true, 20, 100);
 
     private static final MinecraftClient client = MinecraftClient.getInstance();
     private static final String optionsFileName = client.runDirectory.getPath() + "/lama-mod-options.json";

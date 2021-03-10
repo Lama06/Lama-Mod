@@ -1,9 +1,6 @@
 package io.github.lama06.lamamod.mixins;
 
-import io.github.lama06.lamamod.hud.CoordinatesWidget;
-import io.github.lama06.lamamod.hud.FpsWidget;
-import io.github.lama06.lamamod.hud.TimeWidget;
-import io.github.lama06.lamamod.hud.VersionWidget;
+import io.github.lama06.lamamod.hud.*;
 import io.github.lama06.lamamod.accessors.InGameHudAccess;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
@@ -18,6 +15,7 @@ public class InGameHudMixin implements InGameHudAccess {
     public FpsWidget fpsWidget = new FpsWidget();
     public VersionWidget versionWidget = new VersionWidget();
     public TimeWidget timeWidget = new TimeWidget();
+    public KeystrokesWidget keystrokesWidget = new KeystrokesWidget();
 
     @Inject(at = @At("HEAD"), method = "render")
     public void render(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
@@ -25,6 +23,7 @@ public class InGameHudMixin implements InGameHudAccess {
         fpsWidget.render(matrices);
         versionWidget.render(matrices);
         timeWidget.render(matrices);
+        keystrokesWidget.render(matrices);
     }
 
     @Override
@@ -45,5 +44,10 @@ public class InGameHudMixin implements InGameHudAccess {
     @Override
     public TimeWidget getTimeWidget() {
         return timeWidget;
+    }
+
+    @Override
+    public KeystrokesWidget getKeystrokesWidget() {
+        return keystrokesWidget;
     }
 }

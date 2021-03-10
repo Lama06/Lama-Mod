@@ -25,6 +25,19 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinatesWidgetOptio
     }
 
     @Override
+    public void onChatMessage(String[] args) {
+        super.onChatMessage(args);
+
+        CoordinatesWidgetOptions options = getWidgetOptions(Options.getOptions());
+
+        if(args.length == 1) {
+            if(args[0].equals("nether")) {
+               options.netherCoordinates = !options.netherCoordinates;
+            }
+        }
+    }
+
+    @Override
     protected CoordinatesWidgetOptions getWidgetOptions(Options options) {
         return options.coordinatesWidget;
     }

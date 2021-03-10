@@ -94,6 +94,8 @@ public abstract class ChatScreenMixin extends Screen {
                 inGameHudAccess.getCoordinatesWidget().onChatMessage(args);
             } else if(msg.startsWith("versionwidget")) {
                 inGameHudAccess.getVersionWidget().onChatMessage(args);
+            } else if(msg.startsWith("keystrokeswidget")) {
+                inGameHudAccess.getKeystrokesWidget().onChatMessage(args);
             }
 
             else {
