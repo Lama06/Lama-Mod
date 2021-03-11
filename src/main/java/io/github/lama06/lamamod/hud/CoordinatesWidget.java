@@ -1,6 +1,7 @@
 package io.github.lama06.lamamod.hud;
 
 import io.github.lama06.lamamod.options.Options;
+import io.github.lama06.lamamod.util.Util;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
@@ -37,7 +38,13 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinatesWidgetOptio
 
         if(args.length == 1) {
             if(args[0].equals("nether")) {
-               options.netherCoordinates = !options.netherCoordinates;
+               if(options.netherCoordinates) {
+                   options.netherCoordinates = false;
+                   Util.sendMsgToPlayer("Die Nether Koordinaten werden nun ausgeblendet");
+               } else {
+                   options.netherCoordinates = true;
+                   Util.sendMsgToPlayer("Die Nether Koordinaten werden nun angezeigt");
+               }
             }
         }
     }

@@ -3,10 +3,7 @@ package io.github.lama06.lamamod.options;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.lama06.lamamod.LamaMod;
-import io.github.lama06.lamamod.hud.CoordinatesWidgetOptions;
-import io.github.lama06.lamamod.hud.TextWidgetOptions;
-import io.github.lama06.lamamod.hud.TimeWidgetOptions;
-import io.github.lama06.lamamod.hud.WidgetOptions;
+import io.github.lama06.lamamod.hud.*;
 import io.github.lama06.lamamod.util.Util;
 import net.minecraft.client.MinecraftClient;
 
@@ -21,6 +18,7 @@ public class Options {
     public TextWidgetOptions versionWidget = new TextWidgetOptions(true, 20, 60, true);
     public TimeWidgetOptions timeWidget = new TimeWidgetOptions(true, 20, 80, true, true, true);
     public TextWidgetOptions keystrokesWidget = new TextWidgetOptions(true, 20, 100, false);
+    public OnlinePlayersWidgetOptions onlinePlayersWidget = new OnlinePlayersWidgetOptions(true, 20, 120, true, 5);
 
     private static final MinecraftClient client = MinecraftClient.getInstance();
     private static final String optionsFileName = client.runDirectory.getPath() + "/lama-mod-options.json";

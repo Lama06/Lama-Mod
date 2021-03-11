@@ -16,6 +16,7 @@ public class InGameHudMixin implements InGameHudAccess {
     public VersionWidget versionWidget = new VersionWidget();
     public TimeWidget timeWidget = new TimeWidget();
     public KeystrokesWidget keystrokesWidget = new KeystrokesWidget();
+    public OnlinePlayersWidget onlinePlayersWidget = new OnlinePlayersWidget();
 
     @Inject(at = @At("HEAD"), method = "render")
     public void render(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
@@ -24,6 +25,7 @@ public class InGameHudMixin implements InGameHudAccess {
         versionWidget.render(matrices);
         timeWidget.render(matrices);
         keystrokesWidget.render(matrices);
+        onlinePlayersWidget.render(matrices);
     }
 
     @Override
@@ -49,5 +51,10 @@ public class InGameHudMixin implements InGameHudAccess {
     @Override
     public KeystrokesWidget getKeystrokesWidget() {
         return keystrokesWidget;
+    }
+
+    @Override
+    public OnlinePlayersWidget getOnlinePlayersWidget() {
+        return onlinePlayersWidget;
     }
 }

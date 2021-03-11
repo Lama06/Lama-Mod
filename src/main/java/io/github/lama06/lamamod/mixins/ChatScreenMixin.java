@@ -96,6 +96,8 @@ public abstract class ChatScreenMixin extends Screen {
                 inGameHudAccess.getVersionWidget().onChatMessage(args);
             } else if(msg.startsWith("keystrokeswidget")) {
                 inGameHudAccess.getKeystrokesWidget().onChatMessage(args);
+            } else if(msg.startsWith("playerswidget")) {
+                inGameHudAccess.getOnlinePlayersWidget().onChatMessage(args);
             }
 
             else {

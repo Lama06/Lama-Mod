@@ -2,7 +2,6 @@ package io.github.lama06.lamamod.hud;
 
 import io.github.lama06.lamamod.mixins.MinecraftClientAccessor;
 import io.github.lama06.lamamod.options.Options;
-import io.github.lama06.lamamod.util.Util;
 
 public class FpsWidget extends AbstractTextWidget<TextWidgetOptions> {
     @Override

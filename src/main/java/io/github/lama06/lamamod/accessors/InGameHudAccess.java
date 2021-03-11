@@ -8,4 +8,5 @@ public interface InGameHudAccess {
     VersionWidget getVersionWidget();
     TimeWidget getTimeWidget();
     KeystrokesWidget getKeystrokesWidget();
+    OnlinePlayersWidget getOnlinePlayersWidget();
 }
