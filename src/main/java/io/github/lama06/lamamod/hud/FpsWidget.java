@@ -4,19 +4,24 @@ import io.github.lama06.lamamod.mixins.MinecraftClientAccessor;
 import io.github.lama06.lamamod.options.Options;
 import io.github.lama06.lamamod.util.Util;
 
-public class FpsWidget extends AbstractTextWidget<WidgetOptions> {
+public class FpsWidget extends AbstractTextWidget<TextWidgetOptions> {
     @Override
-    protected String getText(WidgetOptions options) {
-        return "Fps: " + MinecraftClientAccessor.getCurrentFps();
+    protected String getText(TextWidgetOptions options) {
+        return Integer.toString(MinecraftClientAccessor.getCurrentFps());
     }
 
     @Override
-    protected WidgetOptions getWidgetOptions(Options options) {
+    protected String getPrefix() {
+        return "Fps: ";
+    }
+
+    @Override
+    protected TextWidgetOptions getWidgetOptions(Options options) {
         return options.fpsWidget;
     }
 
     @Override
-    protected void setWidgetOptions(WidgetOptions widgetOptions) {
+    protected void setWidgetOptions(TextWidgetOptions widgetOptions) {
         Options options = Options.getOptions();
         options.fpsWidget = widgetOptions;
         Options.setOptions(options);

@@ -11,7 +11,12 @@ public class TimeWidget extends AbstractTextWidget<TimeWidgetOptions> {
     protected String getText(TimeWidgetOptions options) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern((options.date ? "dd.MM ": "") + "HH:mm" + (options.seconds ? ":ss" : ""));
         LocalDateTime now = LocalDateTime.now();
-        return "Zeit: " + formatter.format(now);
+        return formatter.format(now);
+    }
+
+    @Override
+    protected String getPrefix() {
+        return "Zeit: ";
     }
 
     @Override

@@ -9,7 +9,7 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinatesWidgetOptio
     protected String getText(CoordinatesWidgetOptions options) {
         PlayerEntity player = client.player;
 
-        String coordinates = "Koordinaten: " + (int) Math.floor(player.getX()) + " " + (int) Math.floor(player.getY()) + " " + (int) Math.floor(player.getZ());
+        String coordinates = (int) Math.floor(player.getX()) + " " + (int) Math.floor(player.getY()) + " " + (int) Math.floor(player.getZ());
 
         if(options.netherCoordinates) {
             if(player.world.getRegistryKey().equals(World.OVERWORLD)) {
@@ -22,6 +22,11 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinatesWidgetOptio
         } else {
             return coordinates;
         }
+    }
+
+    @Override
+    protected String getPrefix() {
+        return "Koordinaten: ";
     }
 
     @Override

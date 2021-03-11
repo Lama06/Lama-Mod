@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.lama06.lamamod.LamaMod;
 import io.github.lama06.lamamod.hud.CoordinatesWidgetOptions;
+import io.github.lama06.lamamod.hud.TextWidgetOptions;
 import io.github.lama06.lamamod.hud.TimeWidgetOptions;
 import io.github.lama06.lamamod.hud.WidgetOptions;
 import io.github.lama06.lamamod.util.Util;
@@ -15,11 +16,11 @@ import java.io.IOException;
 public class Options {
     public ChatShortcutOptions[] customChatShortcuts = { new ChatShortcutOptions("Hallo", "Hallo Welt") };
 
-    public CoordinatesWidgetOptions coordinatesWidget = new CoordinatesWidgetOptions(true, 20, 20, true);
-    public WidgetOptions fpsWidget = new WidgetOptions(true, 20, 40);
-    public WidgetOptions versionWidget = new WidgetOptions(true, 20, 60);
-    public TimeWidgetOptions timeWidget = new TimeWidgetOptions(true, 20, 80, true, true);
-    public WidgetOptions keystrokesWidget = new WidgetOptions(true, 20, 100);
+    public CoordinatesWidgetOptions coordinatesWidget = new CoordinatesWidgetOptions(true, 20, 20, true, true);
+    public TextWidgetOptions fpsWidget = new TextWidgetOptions(true, 20, 40, true);
+    public TextWidgetOptions versionWidget = new TextWidgetOptions(true, 20, 60, true);
+    public TimeWidgetOptions timeWidget = new TimeWidgetOptions(true, 20, 80, true, true, true);
+    public TextWidgetOptions keystrokesWidget = new TextWidgetOptions(true, 20, 100, false);
 
     private static final MinecraftClient client = MinecraftClient.getInstance();
     private static final String optionsFileName = client.runDirectory.getPath() + "/lama-mod-options.json";
