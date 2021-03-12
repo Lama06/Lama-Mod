@@ -17,7 +17,7 @@ public class GithubRelease {
     public String versionTag = "v0.0.0";
 
     @SerializedName("html_url")
-    public String htmlUrl = "";
+    public String htmlUrl = "https://www.example.com/";
 
     public ModVersion getVersion() {
         return new ModVersion(fetchNewestRelease().versionTag);
@@ -27,6 +27,7 @@ public class GithubRelease {
 
     /**
      * Gibt eine Liste aller GithubReleases zurück, die über die GithubAPI abgerufen worden sind
+     * Gibt null bei einem Error zurück
      */
     public static GithubRelease[] fetchReleases() {
         try {
@@ -67,10 +68,10 @@ public class GithubRelease {
      */
     public static GithubRelease fetchNewestRelease() {
         GithubRelease[] releases = fetchReleases();
-        if(releases.length == 0) {
+        if(releases == null) {
             return new GithubRelease();
-        } else  {
-            return fetchReleases()[0];
+        } else {
+            return releases[0];
         }
     }
 
