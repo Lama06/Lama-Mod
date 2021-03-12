@@ -1,11 +1,12 @@
-package io.github.lama06.lamamod.hud;
+package io.github.lama06.lamamod.hud.keystrokes;
 
+import io.github.lama06.lamamod.hud.AbstractTextWidget;
 import io.github.lama06.lamamod.options.Options;
 import net.minecraft.client.util.InputUtil;
 
-public class KeystrokesWidget extends AbstractTextWidget<TextWidgetOptions> {
+public class KeystrokesWidget extends AbstractTextWidget<KeystrokesWidgetOptions> {
     @Override
-    protected String getText(TextWidgetOptions options) {
+    protected String getText(KeystrokesWidgetOptions options) {
         long handle = client.getWindow().getHandle();
         return (InputUtil.isKeyPressed(handle, 32) ? "SPACE": "     ") + " " +
                 (InputUtil.isKeyPressed(handle, 87) ? "W": "") + " " +
@@ -20,12 +21,12 @@ public class KeystrokesWidget extends AbstractTextWidget<TextWidgetOptions> {
     }
 
     @Override
-    protected TextWidgetOptions getWidgetOptions(Options options) {
+    protected KeystrokesWidgetOptions getWidgetOptions(Options options) {
         return options.keystrokesWidget;
     }
 
     @Override
-    protected void setWidgetOptions(TextWidgetOptions widgetOptions) {
+    protected void setWidgetOptions(KeystrokesWidgetOptions widgetOptions) {
         Options options = Options.getOptions();
         options.keystrokesWidget = widgetOptions;
         Options.setOptions(options);

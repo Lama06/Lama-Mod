@@ -1,10 +1,11 @@
-package io.github.lama06.lamamod.hud;
+package io.github.lama06.lamamod.hud.players;
+
+import io.github.lama06.lamamod.hud.TextWidgetOptions;
 
 public class OnlinePlayersWidgetOptions extends TextWidgetOptions {
-    public int maxPlayers;
+    public int maxPlayers = 5;
 
-    public OnlinePlayersWidgetOptions(boolean shown, int x, int y, boolean prefix, int maxPlayers) {
-        super(shown, x, y, prefix);
-        this.maxPlayers = maxPlayers;
+    public OnlinePlayersWidgetOptions() {
+        y = 120;
     }
 }

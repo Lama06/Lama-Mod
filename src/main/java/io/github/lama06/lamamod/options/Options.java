@@ -3,7 +3,12 @@ package io.github.lama06.lamamod.options;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.lama06.lamamod.LamaMod;
-import io.github.lama06.lamamod.hud.*;
+import io.github.lama06.lamamod.hud.coordinates.CoordinatesWidgetOptions;
+import io.github.lama06.lamamod.hud.fps.FpsWidgetOptions;
+import io.github.lama06.lamamod.hud.keystrokes.KeystrokesWidgetOptions;
+import io.github.lama06.lamamod.hud.players.OnlinePlayersWidgetOptions;
+import io.github.lama06.lamamod.hud.time.TimeWidgetOptions;
+import io.github.lama06.lamamod.hud.version.VersionWidgetOptions;
 import io.github.lama06.lamamod.util.Util;
 import net.minecraft.client.MinecraftClient;
 
@@ -13,12 +18,12 @@ import java.io.IOException;
 public class Options {
     public ChatShortcutOptions[] customChatShortcuts = { new ChatShortcutOptions("Hallo", "Hallo Welt") };
 
-    public CoordinatesWidgetOptions coordinatesWidget = new CoordinatesWidgetOptions(true, 20, 20, true, true);
-    public TextWidgetOptions fpsWidget = new TextWidgetOptions(true, 20, 40, true);
-    public TextWidgetOptions versionWidget = new TextWidgetOptions(true, 20, 60, true);
-    public TimeWidgetOptions timeWidget = new TimeWidgetOptions(true, 20, 80, true, true, true);
-    public TextWidgetOptions keystrokesWidget = new TextWidgetOptions(true, 20, 100, false);
-    public OnlinePlayersWidgetOptions onlinePlayersWidget = new OnlinePlayersWidgetOptions(true, 20, 120, true, 5);
+    public CoordinatesWidgetOptions coordinatesWidget = new CoordinatesWidgetOptions();
+    public FpsWidgetOptions fpsWidget = new FpsWidgetOptions();
+    public VersionWidgetOptions versionWidget = new VersionWidgetOptions();
+    public TimeWidgetOptions timeWidget = new TimeWidgetOptions();
+    public KeystrokesWidgetOptions keystrokesWidget = new KeystrokesWidgetOptions();
+    public OnlinePlayersWidgetOptions onlinePlayersWidget = new OnlinePlayersWidgetOptions();
 
     private static final MinecraftClient client = MinecraftClient.getInstance();
     private static final String optionsFileName = client.runDirectory.getPath() + "/lama-mod-options.json";
@@ -41,7 +46,7 @@ public class Options {
             }
 
             String optionsFileContent = Util.readFromFile(file);
-            Gson gson = new Gson();
+            Gson gson = getGson();
             Options options = gson.fromJson(optionsFileContent, Options.class);
 
             cachedOptions = options;
@@ -64,11 +69,21 @@ public class Options {
                 file.createNewFile();
             }
 
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Gson gson = getGson();
             String optionsJson = gson.toJson(options, Options.class);
             Util.writeToFile(file, optionsJson);
         } catch (IOException e) {
             LamaMod.handleException(e);
         }
+    }
+
+    /**
+     * Gibt ein GSON Objekt zurück, dass zum Serialisieren und Deserialisieren
+     * der Einstellungen verwendet werden sollte
+     */
+    private static Gson getGson() {
+        return new GsonBuilder().
+                setPrettyPrinting().
+                create();
     }
 }

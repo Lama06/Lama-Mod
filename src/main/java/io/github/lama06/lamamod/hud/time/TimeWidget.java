@@ -1,5 +1,6 @@
-package io.github.lama06.lamamod.hud;
+package io.github.lama06.lamamod.hud.time;
 
+import io.github.lama06.lamamod.hud.AbstractTextWidget;
 import io.github.lama06.lamamod.options.Options;
 import io.github.lama06.lamamod.util.Util;
 

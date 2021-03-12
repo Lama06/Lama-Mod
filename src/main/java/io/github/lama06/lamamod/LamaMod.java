@@ -8,7 +8,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 
 public class LamaMod implements ClientModInitializer {
-    public static final ModVersion currentModVersion = new ModVersion(1, 1, 0);
+    public static final ModVersion currentModVersion = new ModVersion(1, 2, 0);
     public static final ServerInfo lamaServer = new ServerInfo("Lama Server", "lamaserver.ddns.net", false);
     public static final MinecraftClient client = MinecraftClient.getInstance();
 

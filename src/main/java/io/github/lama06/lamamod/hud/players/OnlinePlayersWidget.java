@@ -1,5 +1,7 @@
-package io.github.lama06.lamamod.hud;
+package io.github.lama06.lamamod.hud.players;
 
+import io.github.lama06.lamamod.hud.AbstractTextWidget;
+import io.github.lama06.lamamod.hud.players.OnlinePlayersWidgetOptions;
 import io.github.lama06.lamamod.options.Options;
 import io.github.lama06.lamamod.util.Util;
 import net.minecraft.client.network.PlayerListEntry;

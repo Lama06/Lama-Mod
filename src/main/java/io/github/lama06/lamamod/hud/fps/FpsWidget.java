@@ -1,11 +1,12 @@
-package io.github.lama06.lamamod.hud;
+package io.github.lama06.lamamod.hud.fps;
 
+import io.github.lama06.lamamod.hud.AbstractTextWidget;
 import io.github.lama06.lamamod.mixins.MinecraftClientAccessor;
 import io.github.lama06.lamamod.options.Options;
 
-public class FpsWidget extends AbstractTextWidget<TextWidgetOptions> {
+public class FpsWidget extends AbstractTextWidget<FpsWidgetOptions> {
     @Override
-    protected String getText(TextWidgetOptions options) {
+    protected String getText(FpsWidgetOptions options) {
         return Integer.toString(MinecraftClientAccessor.getCurrentFps());
     }
 
@@ -15,12 +16,12 @@ public class FpsWidget extends AbstractTextWidget<TextWidgetOptions> {
     }
 
     @Override
-    protected TextWidgetOptions getWidgetOptions(Options options) {
+    protected FpsWidgetOptions getWidgetOptions(Options options) {
         return options.fpsWidget;
     }
 
     @Override
-    protected void setWidgetOptions(TextWidgetOptions widgetOptions) {
+    protected void setWidgetOptions(FpsWidgetOptions widgetOptions) {
         Options options = Options.getOptions();
         options.fpsWidget = widgetOptions;
         Options.setOptions(options);

@@ -1,5 +1,6 @@
-package io.github.lama06.lamamod.hud;
+package io.github.lama06.lamamod.hud.coordinates;
 
+import io.github.lama06.lamamod.hud.AbstractTextWidget;
 import io.github.lama06.lamamod.options.Options;
 import io.github.lama06.lamamod.util.Util;
 import net.minecraft.entity.player.PlayerEntity;

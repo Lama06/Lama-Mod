@@ -1,7 +1,12 @@
 package io.github.lama06.lamamod.mixins;
 
-import io.github.lama06.lamamod.hud.*;
 import io.github.lama06.lamamod.accessors.InGameHudAccess;
+import io.github.lama06.lamamod.hud.coordinates.CoordinatesWidget;
+import io.github.lama06.lamamod.hud.fps.FpsWidget;
+import io.github.lama06.lamamod.hud.keystrokes.KeystrokesWidget;
+import io.github.lama06.lamamod.hud.players.OnlinePlayersWidget;
+import io.github.lama06.lamamod.hud.time.TimeWidget;
+import io.github.lama06.lamamod.hud.version.VersionWidget;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;

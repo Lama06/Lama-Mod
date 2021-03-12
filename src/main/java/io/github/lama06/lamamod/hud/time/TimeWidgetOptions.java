@@ -1,12 +1,12 @@
-package io.github.lama06.lamamod.hud;
+package io.github.lama06.lamamod.hud.time;
+
+import io.github.lama06.lamamod.hud.TextWidgetOptions;
 
 public class TimeWidgetOptions extends TextWidgetOptions {
-    public boolean seconds;
-    public boolean date;
+    public boolean seconds = true;
+    public boolean date = true;
 
-    public TimeWidgetOptions(boolean shown, int x, int y, boolean prefix, boolean date, boolean seconds) {
-        super(shown, x, y, prefix);
-        this.date = date;
-        this.seconds = seconds;
+    public TimeWidgetOptions() {
+        y = 80;
     }
 }
