@@ -55,12 +55,10 @@ public class OnlinePlayersWidget extends AbstractTextWidget<OnlinePlayersWidgetO
                         options.maxPlayers = amount;
                         Util.sendMsgToPlayer("Maximale Anzahl der Spieler, die angezeigt werden, wurde auf " + (amount <= 0 ? "unendlich" : amount) + " gesetzt");
                         setWidgetOptions(options);
-                        return EventResult.CANCEL;
                     }
                 }
             } catch(NumberFormatException e) {
                 Util.sendMsgToPlayer("Bitte gib eine richtige Zahl ein");
-                return EventResult.CANCEL;
             }
         }
 

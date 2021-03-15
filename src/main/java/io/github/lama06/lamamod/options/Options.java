@@ -6,7 +6,7 @@ import io.github.lama06.lamamod.LamaMod;
 import io.github.lama06.lamamod.shortcuts.ShortcutOptions;
 import io.github.lama06.lamamod.shortcuts.coordinates.CoordinatesShortcutOptions;
 import io.github.lama06.lamamod.shortcuts.custom.CustomShortcutOptions;
-import io.github.lama06.lamamod.widgets.coordinates.CoordinatesWidgetOptions;
+import io.github.lama06.lamamod.widgets.coordinates.CoordinateWidgetOptions;
 import io.github.lama06.lamamod.widgets.fps.FpsWidgetOptions;
 import io.github.lama06.lamamod.widgets.keystrokes.KeystrokesWidgetOptions;
 import io.github.lama06.lamamod.widgets.players.OnlinePlayersWidgetOptions;
@@ -27,7 +27,7 @@ public class Options {
     public ShortcutOptions tpShortcut = new ShortcutOptions();
     public ShortcutOptions otherShortcuts = new ShortcutOptions();
 
-    public CoordinatesWidgetOptions coordinatesWidget = new CoordinatesWidgetOptions();
+    public CoordinateWidgetOptions coordinatesWidget = new CoordinateWidgetOptions();
     public FpsWidgetOptions fpsWidget = new FpsWidgetOptions();
     public VersionWidgetOptions versionWidget = new VersionWidgetOptions();
     public TimeWidgetOptions timeWidget = new TimeWidgetOptions();

@@ -5,7 +5,7 @@ import io.github.lama06.lamamod.events.MessageSentCallback;
 import io.github.lama06.lamamod.options.Options;
 import io.github.lama06.lamamod.shortcuts.coordinates.CoordinatesShortcut;
 import io.github.lama06.lamamod.shortcuts.crash.CrashGameShortcut;
-import io.github.lama06.lamamod.shortcuts.custom.CustomShortcuts;
+import io.github.lama06.lamamod.shortcuts.custom.CustomChatShortcuts;
 import io.github.lama06.lamamod.shortcuts.lightning.LightningShortcut;
 import io.github.lama06.lamamod.shortcuts.other.OtherShortcuts;
 import io.github.lama06.lamamod.shortcuts.time.TimeShortcut;
@@ -29,7 +29,7 @@ public class LamaMod implements ClientModInitializer {
     public CrashGameShortcut crashGameShortcut = new CrashGameShortcut();
     public TimeShortcut timeShortcut = new TimeShortcut();
     public LightningShortcut lightningShortcut = new LightningShortcut();
-    public CustomShortcuts customShortcuts = new CustomShortcuts();
+    public CustomChatShortcuts customShortcuts = new CustomChatShortcuts();
     public TeleportShortcut teleportShortcut = new TeleportShortcut();
     public OtherShortcuts otherShortcuts = new OtherShortcuts();
 

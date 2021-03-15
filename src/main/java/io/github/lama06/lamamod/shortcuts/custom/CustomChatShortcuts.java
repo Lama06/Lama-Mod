@@ -14,7 +14,7 @@ enum WaitingForMessageStatus {
     MESSAGE,
 }
 
-public class CustomShortcuts extends AbstractShortcut<CustomShortcutOptions> {
+public class CustomChatShortcuts extends AbstractShortcut<CustomShortcutOptions> {
     private ChatShortcut newShortcut = new ChatShortcut();
     private WaitingForMessageStatus waitingForMessage = WaitingForMessageStatus.NO;
 
@@ -45,10 +45,14 @@ public class CustomShortcuts extends AbstractShortcut<CustomShortcutOptions> {
         if(waitingForMessage != WaitingForMessageStatus.NO) {
             if(waitingForMessage == WaitingForMessageStatus.TRIGGER) {
                 newShortcut.trigger = msg.getPlainText();
+                Util.sendMsgToPlayer(msg.getPlainText());
+
                 waitingForMessage = WaitingForMessageStatus.MESSAGE;
                 Util.sendMsgToPlayer("Gibt bitte jetzt die Nachricht ein: ");
             } else if(waitingForMessage == WaitingForMessageStatus.MESSAGE) {
                 newShortcut.message = msg.getPlainText();
+                Util.sendMsgToPlayer(msg.getPlainText());
+
                 waitingForMessage = WaitingForMessageStatus.NO;
                 options.shortcuts.add(newShortcut);
                 setShortcutOptions(options);
@@ -66,7 +70,7 @@ public class CustomShortcuts extends AbstractShortcut<CustomShortcutOptions> {
                 } else if(args[0].equals("add")) {
                     newShortcut = new ChatShortcut();
                     waitingForMessage = WaitingForMessageStatus.TRIGGER;
-                    Util.sendMsgToPlayer("Sende bitte jetzt eine Nachricht mit dem Trigger: ");
+                    Util.sendMsgToPlayer("Sende bitte jetzt den Trigger ein: ");
                 }
             }
         }

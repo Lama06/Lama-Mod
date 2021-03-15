@@ -10,18 +10,18 @@ import net.minecraft.world.World;
 
 import java.util.Locale;
 
-public class CoordinatesWidget extends AbstractTextWidget<CoordinatesWidgetOptions> {
+public class CoordinatesWidget extends AbstractTextWidget<CoordinateWidgetOptions> {
     @Override
-    protected String getText(CoordinatesWidgetOptions options) {
+    protected String getText(CoordinateWidgetOptions options) {
         PlayerEntity player = client.player;
 
         String coordinates = Math.floor(player.getX()) + " " + Math.floor(player.getY()) + " " + Math.floor(player.getZ());
 
         if(options.netherCoordinates) {
             if(player.world.getRegistryKey().equals(World.OVERWORLD)) {
-                return coordinates + " (im Nether " + (int) Math.floor(player.getX() / 8) + " " + (int) Math.floor(player.getZ() / 8) + ")";
+                return coordinates + " (im Nether " + Math.floor(player.getX() / 8) + " " + Math.floor(player.getZ() / 8) + ")";
             } else if(player.world.getRegistryKey().equals(World.NETHER)) {
-                return coordinates + " (in der Oberwelt " + (int) Math.floor(player.getX() * 8) + " " + (int) Math.floor(player.getZ() * 8) + ")";
+                return coordinates + " (in der Oberwelt " + Math.floor(player.getX() * 8) + " " + Math.floor(player.getZ() * 8) + ")";
             } else {
                 return coordinates;
             }
@@ -38,7 +38,7 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinatesWidgetOptio
     @Override
     public EventResult onChatMessage(ChatMessage msg) {
         if(msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
-            CoordinatesWidgetOptions options = getWidgetOptions(Options.getOptions());
+            CoordinateWidgetOptions options = getWidgetOptions(Options.getOptions());
             String[] args = msg.getArgs();
 
             if(args.length == 1) {
@@ -50,7 +50,7 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinatesWidgetOptio
                         options.netherCoordinates = true;
                         Util.sendMsgToPlayer("Die Nether Koordinaten werden nun angezeigt");
                     }
-                    return EventResult.CANCEL;
+                    setWidgetOptions(options);
                 }
             }
         }
@@ -64,12 +64,12 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinatesWidgetOptio
     }
 
     @Override
-    protected CoordinatesWidgetOptions getWidgetOptions(Options options) {
+    protected CoordinateWidgetOptions getWidgetOptions(Options options) {
         return options.coordinatesWidget;
     }
 
     @Override
-    protected void setWidgetOptions(CoordinatesWidgetOptions widgetOptions) {
+    protected void setWidgetOptions(CoordinateWidgetOptions widgetOptions) {
         Options options = Options.getOptions();
         options.coordinatesWidget = widgetOptions;
         Options.setOptions(options);

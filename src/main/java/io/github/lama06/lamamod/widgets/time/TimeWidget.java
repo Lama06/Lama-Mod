@@ -38,7 +38,6 @@ public class TimeWidget extends AbstractTextWidget<TimeWidgetOptions> {
                         options.date = true;
                         Util.sendMsgToPlayer("Das Datum wird jetzt angezeigt");
                     }
-                    return EventResult.CANCEL;
                 } else if(args[0].equals("seconds")) {
                     if(options.seconds) {
                         options.seconds = false;
@@ -47,7 +46,6 @@ public class TimeWidget extends AbstractTextWidget<TimeWidgetOptions> {
                         options.seconds = true;
                         Util.sendMsgToPlayer("Die Sekunden werden nun angezeigt");
                     }
-                    return EventResult.CANCEL;
                 }
                 setWidgetOptions(options);
             }
