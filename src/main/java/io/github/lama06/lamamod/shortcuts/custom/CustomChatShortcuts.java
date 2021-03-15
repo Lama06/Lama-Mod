@@ -70,7 +70,7 @@ public class CustomChatShortcuts extends AbstractShortcut<CustomShortcutOptions>
                 } else if(args[0].equals("add")) {
                     newShortcut = new ChatShortcut();
                     waitingForMessage = WaitingForMessageStatus.TRIGGER;
-                    Util.sendMsgToPlayer("Sende bitte jetzt den Trigger ein: ");
+                    Util.sendMsgToPlayer("Gib bitte jetzt den Trigger ein: ");
                 }
             }
         }
