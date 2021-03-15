@@ -15,6 +15,7 @@ import java.util.*;
 
 public class Util {
     public static final UUID Hepux06UUID = UUID.fromString("08f0ac27-c134-4324-8b16-6a53c8361c6d");
+    public static final UUID Lama06UUID = UUID.fromString("7370723c-1f89-4e7c-a9fe-30ba8b4f0ae3");
 
     private static final MinecraftClient client = MinecraftClient.getInstance();
 
@@ -100,10 +101,5 @@ public class Util {
         } catch (MalformedURLException e) {
             LamaMod.handleException(e);
         }
-    }
-
-    public static String[] getArgumentsFromMsg(String msg) {
-        String[] args = msg.split(" ");
-        return Arrays.copyOfRange(args, 1, args.length);
     }
 }

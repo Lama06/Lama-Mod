@@ -59,7 +59,7 @@ public class GithubRelease {
             return releases;
         } catch (Exception e) {
             LamaMod.handleException(e);
-            return null;
+            return new GithubRelease[] {new GithubRelease()};
         }
     }
 
