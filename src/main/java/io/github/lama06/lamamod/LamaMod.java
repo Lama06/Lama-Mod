@@ -19,6 +19,7 @@ import io.github.lama06.lamamod.widgets.players.OnlinePlayersWidget;
 import io.github.lama06.lamamod.widgets.time.TimeWidget;
 import io.github.lama06.lamamod.widgets.version.VersionWidget;
 import net.fabricmc.api.ClientModInitializer;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 
 public class LamaMod implements ClientModInitializer {

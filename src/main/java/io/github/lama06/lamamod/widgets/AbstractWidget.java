@@ -5,6 +5,7 @@ import io.github.lama06.lamamod.events.HudRenderCallback;
 import io.github.lama06.lamamod.events.MessageSentCallback;
 import io.github.lama06.lamamod.options.Options;
 import io.github.lama06.lamamod.util.ChatMessage;
+import io.github.lama06.lamamod.util.Color;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.util.math.MatrixStack;
@@ -22,7 +23,6 @@ import static io.github.lama06.lamamod.util.Util.sendMsgToPlayer;
  */
 public abstract class AbstractWidget<T extends WidgetOptions> extends DrawableHelper implements HudRenderCallback, MessageSentCallback {
     protected final MinecraftClient client = MinecraftClient.getInstance();
-    protected final int textColor = 14737632;
 
     /**
      * Muss vom Widget implementiert werden. Wird aufgerufen, wenn das Widget gerendert werden soll.
@@ -37,6 +37,10 @@ public abstract class AbstractWidget<T extends WidgetOptions> extends DrawableHe
      * @param options die Optionen der Mod
      */
     protected abstract T getWidgetOptions(Options options);
+
+    protected T getWidgetOptions() {
+        return getWidgetOptions(Options.getOptions());
+    }
 
     /**
      * Muss vom Widget implementiert werden. Wird aufgerufen, umd die Optionen des Widgets zu ändern.
@@ -100,7 +104,7 @@ public abstract class AbstractWidget<T extends WidgetOptions> extends DrawableHe
     /**
      * Eine Funktion, die benutzt werden kann um Text darzustellen
      */
-    protected void renderText(MatrixStack matrices, String text, float x, float y) {
+    protected void renderText(MatrixStack matrices, String text, int textColor, float x, float y) {
         MinecraftClient.getInstance().textRenderer.draw(matrices, new LiteralText(text), x, y, textColor);
     }
 }

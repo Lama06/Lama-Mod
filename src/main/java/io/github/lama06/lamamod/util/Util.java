@@ -102,4 +102,8 @@ public class Util {
             LamaMod.handleException(e);
         }
     }
+
+    public static long getHandle() {
+        return client.getWindow().getHandle();
+    }
 }

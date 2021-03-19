@@ -11,7 +11,7 @@ import java.util.Locale;
 /**
  * Sollte von allen Widgets erweitert werden, die nur Text darstellen
  */
-public abstract class AbstractTextWidget<T extends TextWidgetOptions> extends AbstractWidget<T> {
+public abstract class AbstractTextWidget<T extends TextWidgetOptions> extends ColoredWidget<T> {
     /**
      * Muss implementiert werden und den Text zurückgeben, den das Widget darstellen soll
      */
@@ -47,6 +47,6 @@ public abstract class AbstractTextWidget<T extends TextWidgetOptions> extends Ab
 
     @Override
     public void renderWidget(T options, MatrixStack matrices) {
-        renderText(matrices, (options.prefix ? getPrefix() : "") + getText(options), options.x, options.y);
+        renderText(matrices, (options.prefix ? getPrefix() : "") + getText(options), options.color.toInt(),options.x, options.y);
     }
 }
