@@ -23,7 +23,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 
 public class LamaMod implements ClientModInitializer {
-    public static final ModVersion currentModVersion = new ModVersion(1, 3, 0);
+    public static final ModVersion currentModVersion = new ModVersion(1, 4, 0);
     public static final ServerInfo lamaServer = new ServerInfo("Lama Server", "lamaserver.ddns.net", false);
 
     public CoordinatesShortcut coordinatesShortcut = new CoordinatesShortcut();
