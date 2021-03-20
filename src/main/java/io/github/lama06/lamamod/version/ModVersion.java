@@ -16,6 +16,7 @@ public class ModVersion {
 
     /**
      * Erstellt eine ModVersion mithilfe eines Version Tags (zB "v1.2.3")
+     *
      * @param versionTag der Version Tag
      */
     public ModVersion(String versionTag) {
@@ -28,16 +29,17 @@ public class ModVersion {
 
     /**
      * Überprüft, ob diese ModVersion älter als eine andere ModVersion ist
+     *
      * @param other die andere ModVersion
      * @return Gibt true zurück, wenn diese ModVersion älter ist als die andere.
      * Gibt false zurück, wenn die ModVersionen gleich alt sind.
      */
     public boolean isOlderThan(ModVersion other) {
-        if(other.major != major) {
+        if (other.major != major) {
             return other.major > major;
-        } else if(other.minor != minor) {
+        } else if (other.minor != minor) {
             return other.minor > minor;
-        } else if(other.patch != patch) {
+        } else if (other.patch != patch) {
             return other.patch > patch;
         } else {
             // Die Versionen sind die selben

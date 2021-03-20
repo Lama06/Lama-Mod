@@ -20,8 +20,8 @@ public class CustomChatShortcuts extends AbstractShortcut<CustomShortcutOptions>
 
     @Override
     protected boolean isChatShortcut(ChatMessage msg) {
-        for(ChatShortcut shortcut : getShortcutOptions().shortcuts) {
-            if(msg.getText().equals(shortcut.trigger.toLowerCase(Locale.ROOT).trim())) {
+        for (ChatShortcut shortcut : getShortcutOptions().shortcuts) {
+            if (msg.getText().equals(shortcut.trigger.toLowerCase(Locale.ROOT).trim())) {
                 return true;
             }
         }
@@ -30,8 +30,8 @@ public class CustomChatShortcuts extends AbstractShortcut<CustomShortcutOptions>
 
     @Override
     protected void executeChatShortcut(ChatMessage msg) {
-        for(ChatShortcut shortcut : getShortcutOptions().shortcuts) {
-            if(msg.getText().equals(shortcut.trigger.toLowerCase(Locale.ROOT).trim())) {
+        for (ChatShortcut shortcut : getShortcutOptions().shortcuts) {
+            if (msg.getText().equals(shortcut.trigger.toLowerCase(Locale.ROOT).trim())) {
                 Util.sendMsgToChat(shortcut.message);
             }
         }
@@ -42,14 +42,14 @@ public class CustomChatShortcuts extends AbstractShortcut<CustomShortcutOptions>
         CustomShortcutOptions options = getShortcutOptions();
         String[] args = msg.getArgs();
 
-        if(waitingForMessage != WaitingForMessageStatus.NO) {
-            if(waitingForMessage == WaitingForMessageStatus.TRIGGER) {
+        if (waitingForMessage != WaitingForMessageStatus.NO) {
+            if (waitingForMessage == WaitingForMessageStatus.TRIGGER) {
                 newShortcut.trigger = msg.getPlainText();
                 Util.sendMsgToPlayer(msg.getPlainText());
 
                 waitingForMessage = WaitingForMessageStatus.MESSAGE;
                 Util.sendMsgToPlayer("Gibt bitte jetzt die Nachricht ein: ");
-            } else if(waitingForMessage == WaitingForMessageStatus.MESSAGE) {
+            } else if (waitingForMessage == WaitingForMessageStatus.MESSAGE) {
                 newShortcut.message = msg.getPlainText();
                 Util.sendMsgToPlayer(msg.getPlainText());
 
@@ -59,15 +59,15 @@ public class CustomChatShortcuts extends AbstractShortcut<CustomShortcutOptions>
                 Util.sendMsgToPlayer("Shortcut hinzugefügt!");
             }
             return EventResult.CANCEL;
-        } else if(msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
-            if(args.length >= 1) {
-                if(args[0].equals("list")) {
+        } else if (msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
+            if (args.length >= 1) {
+                if (args[0].equals("list")) {
                     int amountOfShortcuts = options.shortcuts.size();
                     Util.sendMsgToPlayer(String.format("Es gibt %s Shortcuts: ", amountOfShortcuts));
-                    for(ChatShortcut shortcut : options.shortcuts) {
+                    for (ChatShortcut shortcut : options.shortcuts) {
                         Util.sendMsgToPlayer(String.format("%s -> %s", shortcut.trigger, shortcut.message));
                     }
-                } else if(args[0].equals("add")) {
+                } else if (args[0].equals("add")) {
                     newShortcut = new ChatShortcut();
                     waitingForMessage = WaitingForMessageStatus.TRIGGER;
                     Util.sendMsgToPlayer("Gib bitte jetzt den Trigger ein: ");

@@ -1,10 +1,10 @@
 package io.github.lama06.lamamod.widgets.players;
 
 import io.github.lama06.lamamod.events.EventResult;
-import io.github.lama06.lamamod.util.ChatMessage;
-import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 import io.github.lama06.lamamod.options.Options;
+import io.github.lama06.lamamod.util.ChatMessage;
 import io.github.lama06.lamamod.util.Util;
+import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 import net.minecraft.client.network.PlayerListEntry;
 
 import java.util.Collection;
@@ -21,8 +21,8 @@ public class OnlinePlayersWidget extends AbstractTextWidget<OnlinePlayersWidgetO
         string.append("(").append(playersOnServer).append(") ");
 
         int players = 0;
-        for(PlayerListEntry player : onlinePlayers) {
-            if(players < options.maxPlayers || options.maxPlayers <= 0) {
+        for (PlayerListEntry player : onlinePlayers) {
+            if (players < options.maxPlayers || options.maxPlayers <= 0) {
                 String playerName = player.getProfile().getName();
 
                 string.append(playerName).append(" ");
@@ -44,20 +44,20 @@ public class OnlinePlayersWidget extends AbstractTextWidget<OnlinePlayersWidgetO
 
     @Override
     public EventResult onChatMessage(ChatMessage msg) {
-        if(msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
-            OnlinePlayersWidgetOptions options = getWidgetOptions(Options.getOptions());
+        if (msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
+            OnlinePlayersWidgetOptions options = getWidgetOptions();
             String[] args = msg.getArgs();
 
             try {
-                if(args.length == 2) {
-                    if(args[0].equals("maxplayers")) {
+                if (args.length == 2) {
+                    if (args[0].equals("maxplayers")) {
                         int amount = Integer.parseInt(args[1]);
                         options.maxPlayers = amount;
                         Util.sendMsgToPlayer("Maximale Anzahl der Spieler, die angezeigt werden, wurde auf " + (amount <= 0 ? "unendlich" : amount) + " gesetzt");
                         setWidgetOptions(options);
                     }
                 }
-            } catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 Util.sendMsgToPlayer("Bitte gib eine richtige Zahl ein");
             }
         }

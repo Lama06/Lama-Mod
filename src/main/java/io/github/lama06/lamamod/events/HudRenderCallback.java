@@ -5,7 +5,7 @@ import net.minecraft.client.util.math.MatrixStack;
 
 public interface HudRenderCallback {
     Event<HudRenderCallback> EVENT = new Event<>((listeners) -> (matrices) -> {
-        for(HudRenderCallback listener : listeners) {
+        for (HudRenderCallback listener : listeners) {
             listener.onHudRender(matrices);
         }
     });

@@ -25,14 +25,14 @@ public class CoordinatesShortcut extends AbstractShortcut<CoordinatesShortcutOpt
         PlayerEntity player = client.player;
         String coordinates = Math.round(player.getX()) + " " + Math.round(player.getY()) + " " + Math.round(player.getZ());
 
-        if(options.copyToClipboard && options.writeToChat) {
+        if (options.copyToClipboard && options.writeToChat) {
             Util.sendMsgToPlayer("Deine Koordinaten werden in den Chat gesendet und in die Zwischenablage kopiert");
             Util.sendMsgToChat(coordinates);
             client.keyboard.setClipboard(coordinates);
-        } else if(options.copyToClipboard) {
+        } else if (options.copyToClipboard) {
             Util.sendMsgToPlayer("Deine Koordinaten werden in die Zwischenablage kopiert");
             client.keyboard.setClipboard(coordinates);
-        } else if(options.writeToChat) {
+        } else if (options.writeToChat) {
             Util.sendMsgToPlayer("Deine Koordinaten werden in den Chat geschrieben");
             Util.sendMsgToChat(coordinates);
         } else {
@@ -42,13 +42,13 @@ public class CoordinatesShortcut extends AbstractShortcut<CoordinatesShortcutOpt
 
     @Override
     public EventResult onChatMessage(ChatMessage msg) {
-        if(msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
+        if (msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
             String[] args = msg.getArgs();
             CoordinatesShortcutOptions options = getShortcutOptions();
 
-            if(msg.getArgs().length == 1) {
-                if(args[0].equals("chat")) {
-                    if(options.writeToChat) {
+            if (msg.getArgs().length == 1) {
+                if (args[0].equals("chat")) {
+                    if (options.writeToChat) {
                         options.writeToChat = false;
                         Util.sendMsgToPlayer("Die Koordinaten werden jetzt nicht mehr in den Chat geschrieben");
                     } else {
@@ -56,8 +56,8 @@ public class CoordinatesShortcut extends AbstractShortcut<CoordinatesShortcutOpt
                         Util.sendMsgToPlayer("Die Koordinaten werden jetzt wieder in den Chat gesendet");
                     }
                     setShortcutOptions(options);
-                } else if(args[0].equals("copy")) {
-                    if(options.copyToClipboard) {
+                } else if (args[0].equals("copy")) {
+                    if (options.copyToClipboard) {
                         options.copyToClipboard = false;
                         Util.sendMsgToPlayer("Die Koordinaten werden jetzt nicht mehr in die Zwischenablage kopiert");
                     } else {

@@ -1,10 +1,10 @@
 package io.github.lama06.lamamod.widgets.time;
 
 import io.github.lama06.lamamod.events.EventResult;
-import io.github.lama06.lamamod.util.ChatMessage;
-import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 import io.github.lama06.lamamod.options.Options;
+import io.github.lama06.lamamod.util.ChatMessage;
 import io.github.lama06.lamamod.util.Util;
+import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,7 +13,7 @@ import java.util.Locale;
 public class TimeWidget extends AbstractTextWidget<TimeWidgetOptions> {
     @Override
     protected String getText(TimeWidgetOptions options) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern((options.date ? "dd.MM ": "") + "HH:mm" + (options.seconds ? ":ss" : ""));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern((options.date ? "dd.MM " : "") + "HH:mm" + (options.seconds ? ":ss" : ""));
         LocalDateTime now = LocalDateTime.now();
         return formatter.format(now);
     }
@@ -25,21 +25,21 @@ public class TimeWidget extends AbstractTextWidget<TimeWidgetOptions> {
 
     @Override
     public EventResult onChatMessage(ChatMessage msg) {
-        if(msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
+        if (msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
             TimeWidgetOptions options = getWidgetOptions(Options.getOptions());
             String[] args = msg.getArgs();
 
-            if(args.length == 1) {
-                if(args[0].equals("date")) {
-                    if(options.date) {
+            if (args.length == 1) {
+                if (args[0].equals("date")) {
+                    if (options.date) {
                         options.date = false;
                         Util.sendMsgToPlayer("Das Datum wird nun ausgeblendet");
                     } else {
                         options.date = true;
                         Util.sendMsgToPlayer("Das Datum wird jetzt angezeigt");
                     }
-                } else if(args[0].equals("seconds")) {
-                    if(options.seconds) {
+                } else if (args[0].equals("seconds")) {
+                    if (options.seconds) {
                         options.seconds = false;
                         Util.sendMsgToPlayer("Die Sekunden werden nun ausgeblendet");
                     } else {

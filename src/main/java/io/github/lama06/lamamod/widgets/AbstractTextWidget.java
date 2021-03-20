@@ -24,13 +24,13 @@ public abstract class AbstractTextWidget<T extends TextWidgetOptions> extends Co
 
     @Override
     public EventResult onChatMessage(ChatMessage msg) {
-        if(msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
+        if (msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
             T options = getWidgetOptions(Options.getOptions());
             String[] args = msg.getArgs();
 
-            if(args.length == 1) {
-                if(args[0].equals("prefix")) {
-                    if(options.prefix) {
+            if (args.length == 1) {
+                if (args[0].equals("prefix")) {
+                    if (options.prefix) {
                         options.prefix = false;
                         Util.sendMsgToPlayer("Der Prefix wird nun ausgeblendet");
                     } else {
@@ -47,6 +47,6 @@ public abstract class AbstractTextWidget<T extends TextWidgetOptions> extends Co
 
     @Override
     public void renderWidget(T options, MatrixStack matrices) {
-        renderText(matrices, (options.prefix ? getPrefix() : "") + getText(options), options.color.toInt(),options.x, options.y);
+        renderText(matrices, (options.prefix ? getPrefix() : "") + getText(options), options.color.toInt(), options.x, options.y);
     }
 }

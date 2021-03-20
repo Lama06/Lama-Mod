@@ -5,7 +5,6 @@ import io.github.lama06.lamamod.events.HudRenderCallback;
 import io.github.lama06.lamamod.events.MessageSentCallback;
 import io.github.lama06.lamamod.options.Options;
 import io.github.lama06.lamamod.util.ChatMessage;
-import io.github.lama06.lamamod.util.Color;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.util.math.MatrixStack;

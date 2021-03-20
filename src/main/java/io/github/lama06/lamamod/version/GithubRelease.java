@@ -20,7 +20,7 @@ public class GithubRelease {
     public String htmlUrl = "https://www.example.com/";
 
     public ModVersion getVersion() {
-        return new ModVersion(fetchNewestRelease().versionTag);
+        return new ModVersion(versionTag);
     }
 
     private static GithubRelease[] cachedReleases = null;
@@ -31,7 +31,7 @@ public class GithubRelease {
      */
     public static GithubRelease[] fetchReleases() {
         try {
-            if(cachedReleases != null) {
+            if (cachedReleases != null) {
                 return cachedReleases;
             }
 
@@ -41,10 +41,10 @@ public class GithubRelease {
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
             StringBuilder responseBuilder = new StringBuilder();
-            while(true) {
+            while (true) {
                 String nextLine = in.readLine();
 
-                if(nextLine == null) {
+                if (nextLine == null) {
                     break;
                 } else {
                     responseBuilder.append(nextLine);
@@ -59,7 +59,7 @@ public class GithubRelease {
             return releases;
         } catch (Exception e) {
             LamaMod.handleException(e);
-            return new GithubRelease[] {new GithubRelease()};
+            return new GithubRelease[]{new GithubRelease()};
         }
     }
 
@@ -68,7 +68,7 @@ public class GithubRelease {
      */
     public static GithubRelease fetchNewestRelease() {
         GithubRelease[] releases = fetchReleases();
-        if(releases == null) {
+        if (releases.length == 0) {
             return new GithubRelease();
         } else {
             return releases[0];

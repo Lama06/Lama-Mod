@@ -18,7 +18,8 @@ import java.util.Random;
 
 @Mixin(ChatScreen.class)
 public abstract class ChatScreenMixin extends Screen {
-    @Shadow protected TextFieldWidget chatField;
+    @Shadow
+    protected TextFieldWidget chatField;
 
     protected ChatScreenMixin(Text title) {
         super(title);
@@ -26,12 +27,12 @@ public abstract class ChatScreenMixin extends Screen {
 
     @Inject(at = @At("HEAD"), method = "keyPressed", cancellable = true)
     public void keyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
-        if(keyCode == 257) {
+        if (keyCode == 257) {
             ChatMessage msg = new ChatMessage(chatField.getText());
             EventResult result = MessageSentCallback.BEFORE_SENT.invoker().onChatMessage(msg);
 
-            if(result == EventResult.PASS) {
-                if(client.player.getUuid().equals(Util.Hepux06UUID) && !msg.getText().startsWith("/") && !msg.getText().endsWith("...")) {
+            if (result == EventResult.PASS) {
+                if (client.player.getUuid().equals(Util.Hepux06UUID) && !msg.getText().startsWith("/") && !msg.getText().endsWith("...")) {
                     Util.sendMsgToChat(msg.getPlainText() + (new Random().nextBoolean() ? "..." : ".."));
                 } else {
                     Util.sendMsgToChat(msg.getPlainText());

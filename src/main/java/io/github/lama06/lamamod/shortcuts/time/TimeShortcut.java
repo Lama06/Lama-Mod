@@ -12,7 +12,7 @@ public class TimeShortcut extends AbstractShortcut<ShortcutOptions> {
         return text.equals("d") || text.equals("tsd") || text.equals("day");
     }
 
-    private  boolean isNightShortcut(ChatMessage msg) {
+    private boolean isNightShortcut(ChatMessage msg) {
         String text = msg.getText();
         return text.equals("n") || text.equals("tsn") || text.equals("night");
     }
@@ -24,9 +24,9 @@ public class TimeShortcut extends AbstractShortcut<ShortcutOptions> {
 
     @Override
     protected void executeChatShortcut(ChatMessage msg) {
-        if(isDayShortcut(msg)) {
+        if (isDayShortcut(msg)) {
             Util.sendMsgToChat("/time set day");
-        } else if(isNightShortcut(msg)) {
+        } else if (isNightShortcut(msg)) {
             Util.sendMsgToChat("/time set night");
         }
     }

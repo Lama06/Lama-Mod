@@ -19,7 +19,6 @@ import io.github.lama06.lamamod.widgets.players.OnlinePlayersWidget;
 import io.github.lama06.lamamod.widgets.time.TimeWidget;
 import io.github.lama06.lamamod.widgets.version.VersionWidget;
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 
 public class LamaMod implements ClientModInitializer {
@@ -77,7 +76,7 @@ public class LamaMod implements ClientModInitializer {
 
         Options.setOptions(Options.getOptions());
 
-        if(GithubRelease.isNewerModVersionAvailable()) {
+        if (GithubRelease.isNewerModVersionAvailable()) {
             GithubRelease newestRelease = GithubRelease.fetchNewestRelease();
             System.out.println("Es ist eine neuere Version der Lama Mod verfügbar: " + newestRelease.versionTag);
         } else {

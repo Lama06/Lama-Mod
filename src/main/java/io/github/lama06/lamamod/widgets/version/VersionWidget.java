@@ -1,9 +1,9 @@
 package io.github.lama06.lamamod.widgets.version;
 
 import io.github.lama06.lamamod.LamaMod;
-import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 import io.github.lama06.lamamod.options.Options;
 import io.github.lama06.lamamod.version.GithubRelease;
+import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 
 public class VersionWidget extends AbstractTextWidget<VersionWidgetOptions> {
     private final GithubRelease newestRelease = GithubRelease.fetchNewestRelease();

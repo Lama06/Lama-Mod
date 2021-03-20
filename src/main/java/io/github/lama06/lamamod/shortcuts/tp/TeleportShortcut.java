@@ -13,8 +13,8 @@ import net.minecraft.client.network.PlayerListEntry;
 public class TeleportShortcut extends AbstractShortcut {
     @Override
     protected boolean isChatShortcut(ChatMessage msg) {
-        for(PlayerListEntry player : client.getNetworkHandler().getPlayerList()) {
-            if(msg.getText().equalsIgnoreCase(player.getProfile().getName())) {
+        for (PlayerListEntry player : client.getNetworkHandler().getPlayerList()) {
+            if (msg.getText().equalsIgnoreCase(player.getProfile().getName())) {
                 return true;
             }
         }

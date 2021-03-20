@@ -12,10 +12,11 @@ public class ChatMessage {
     /**
      * Text der Nachricht
      */
-    private String text;
+    private final String text;
 
     /**
      * Erstellt eine neue Nachricht
+     *
      * @param text Text der Nachricht
      */
     public ChatMessage(String text) {
@@ -26,6 +27,7 @@ public class ChatMessage {
      * Gibt den Text der Nachricht wieder. Alle Großbuchstaben werden zu Kleinbuchstaben.
      * Wenn die Nachricht, mit unveränderter Groß- und Kleinschreibung benötigt wird, sollte getPlainMsg
      * verwendet werden.
+     *
      * @return den Text der nachricht in Kleinbuchstaben.
      */
     public String getText() {
@@ -34,6 +36,7 @@ public class ChatMessage {
 
     /**
      * Gibt den Text der Nachricht zurück.
+     *
      * @return den Text der Nachricht
      */
     public String getPlainText() {
@@ -43,20 +46,22 @@ public class ChatMessage {
     /**
      * Gibt die Argumente der Nachricht zurück. Großbuchstaben werden zu Kleinbuchstaben.
      * Beispiel: "Hallo das ist ein Test" -> ["das", "ist", "ein", "test"]
+     *
      * @return
      */
     public String[] getArgs() {
         List<String> args = new ArrayList<>();
 
-        for(String arg : getPlainArgs()) {
+        for (String arg : getPlainArgs()) {
             args.add(arg.toLowerCase(Locale.ROOT));
         }
 
-        return args.toArray(new String[] {});
+        return args.toArray(new String[]{});
     }
 
     /**
      * Gibt die Argumente der Nachricht zurück
+     *
      * @return due Argumente der Nachricht
      */
     public String[] getPlainArgs() {
@@ -67,6 +72,7 @@ public class ChatMessage {
     /**
      * Gibt das erste Argument zurück. Großbuchstaben werden zu Kleinbuchstaben.
      * Beispiel: "Hallo das ist ein Test" -> "hallo"
+     *
      * @return
      */
     public String getFirstArg() {
@@ -75,6 +81,7 @@ public class ChatMessage {
 
     /**
      * Gibt das erste Argument zurück.
+     *
      * @return das erste Argument
      */
     public String getFirstArgPlain() {

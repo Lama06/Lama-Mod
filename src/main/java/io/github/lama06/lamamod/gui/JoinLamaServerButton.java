@@ -14,7 +14,7 @@ import net.minecraft.text.LiteralText;
 public class JoinLamaServerButton extends ButtonWidget {
     public JoinLamaServerButton(Screen parent, int x, int y, int width, int height) {
         super(x, y, width, height, new LiteralText("Lama Server"), (button) -> {
-            if(GithubRelease.isNewerModVersionAvailable()) {
+            if (GithubRelease.isNewerModVersionAvailable()) {
                 MinecraftClient.getInstance().openScreen(new NewVersionAvailableScreen(() -> {
                     Util.connectToServer(parent, LamaMod.lamaServer);
                 }));

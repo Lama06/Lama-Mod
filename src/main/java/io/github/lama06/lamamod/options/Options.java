@@ -6,13 +6,13 @@ import io.github.lama06.lamamod.LamaMod;
 import io.github.lama06.lamamod.shortcuts.ShortcutOptions;
 import io.github.lama06.lamamod.shortcuts.coordinates.CoordinatesShortcutOptions;
 import io.github.lama06.lamamod.shortcuts.custom.CustomShortcutOptions;
+import io.github.lama06.lamamod.util.Util;
 import io.github.lama06.lamamod.widgets.coordinates.CoordinateWidgetOptions;
 import io.github.lama06.lamamod.widgets.fps.FpsWidgetOptions;
 import io.github.lama06.lamamod.widgets.keystrokes.KeystrokesWidgetOptions;
 import io.github.lama06.lamamod.widgets.players.OnlinePlayersWidgetOptions;
 import io.github.lama06.lamamod.widgets.time.TimeWidgetOptions;
 import io.github.lama06.lamamod.widgets.version.VersionWidgetOptions;
-import io.github.lama06.lamamod.util.Util;
 import net.minecraft.client.MinecraftClient;
 
 import java.io.File;
@@ -44,12 +44,12 @@ public class Options {
      */
     public static Options getOptions() {
         try {
-            if(cachedOptions != null) {
+            if (cachedOptions != null) {
                 return cachedOptions;
             }
 
             File file = new File(optionsFileName);
-            if(!file.exists()) {
+            if (!file.exists()) {
                 file.createNewFile();
                 Util.writeToFile(file, "{}");
             }
@@ -74,7 +74,7 @@ public class Options {
             cachedOptions = options;
 
             File file = new File(optionsFileName);
-            if(!file.exists()) {
+            if (!file.exists()) {
                 file.createNewFile();
             }
 

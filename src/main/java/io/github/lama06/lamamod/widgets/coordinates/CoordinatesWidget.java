@@ -1,10 +1,10 @@
 package io.github.lama06.lamamod.widgets.coordinates;
 
 import io.github.lama06.lamamod.events.EventResult;
-import io.github.lama06.lamamod.util.ChatMessage;
-import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 import io.github.lama06.lamamod.options.Options;
+import io.github.lama06.lamamod.util.ChatMessage;
 import io.github.lama06.lamamod.util.Util;
+import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
@@ -15,13 +15,13 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinateWidgetOption
     protected String getText(CoordinateWidgetOptions options) {
         PlayerEntity player = client.player;
 
-        String coordinates = Math.floor(player.getX()) + " " + Math.floor(player.getY()) + " " + Math.floor(player.getZ());
+        String coordinates = Math.round(player.getX()) + " " + Math.round(player.getY()) + " " + Math.round(player.getZ());
 
-        if(options.netherCoordinates) {
-            if(player.world.getRegistryKey().equals(World.OVERWORLD)) {
-                return coordinates + " (im Nether " + Math.floor(player.getX() / 8) + " " + Math.floor(player.getZ() / 8) + ")";
-            } else if(player.world.getRegistryKey().equals(World.NETHER)) {
-                return coordinates + " (in der Oberwelt " + Math.floor(player.getX() * 8) + " " + Math.floor(player.getZ() * 8) + ")";
+        if (options.netherCoordinates) {
+            if (player.world.getRegistryKey().equals(World.OVERWORLD)) {
+                return coordinates + " (im Nether " + Math.round(player.getX() / 8) + " " + Math.round(player.getZ() / 8) + ")";
+            } else if (player.world.getRegistryKey().equals(World.NETHER)) {
+                return coordinates + " (in der Oberwelt " + Math.round(player.getX() * 8) + " " + Math.round(player.getZ() * 8) + ")";
             } else {
                 return coordinates;
             }
@@ -37,13 +37,13 @@ public class CoordinatesWidget extends AbstractTextWidget<CoordinateWidgetOption
 
     @Override
     public EventResult onChatMessage(ChatMessage msg) {
-        if(msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
+        if (msg.getText().startsWith(getName().toLowerCase(Locale.ROOT))) {
             CoordinateWidgetOptions options = getWidgetOptions(Options.getOptions());
             String[] args = msg.getArgs();
 
-            if(args.length == 1) {
-                if(args[0].equals("nether")) {
-                    if(options.netherCoordinates) {
+            if (args.length == 1) {
+                if (args[0].equals("nether")) {
+                    if (options.netherCoordinates) {
                         options.netherCoordinates = false;
                         Util.sendMsgToPlayer("Die Nether Koordinaten werden nun ausgeblendet");
                     } else {

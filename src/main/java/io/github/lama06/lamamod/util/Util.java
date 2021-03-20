@@ -11,7 +11,8 @@ import net.minecraft.util.crash.CrashReport;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.*;
+import java.util.Scanner;
+import java.util.UUID;
 
 public class Util {
     public static final UUID Hepux06UUID = UUID.fromString("08f0ac27-c134-4324-8b16-6a53c8361c6d");
@@ -28,7 +29,8 @@ public class Util {
 
     /**
      * Schreibt etwas in eine Datei
-     * @param file die Datei
+     *
+     * @param file    die Datei
      * @param content der Inhalt, der in die Datei geschrieben werden soll
      */
     public static void writeToFile(File file, String content) throws IOException {
@@ -41,6 +43,7 @@ public class Util {
 
     /**
      * Liest den Inhalt einer Datei
+     *
      * @param file die Datei
      * @return den Inhalt der Datei
      */
@@ -49,7 +52,7 @@ public class Util {
 
         Scanner scanner = new Scanner(file);
         StringBuilder content = new StringBuilder();
-        while(scanner.hasNext()) {
+        while (scanner.hasNext()) {
             String line = scanner.nextLine();
             content.append(line);
         }
@@ -59,6 +62,7 @@ public class Util {
 
     /**
      * Sendet eine Nachricht in den Chat
+     *
      * @param msg die Nachricht
      */
     public static void sendMsgToChat(String msg) {
@@ -71,6 +75,7 @@ public class Util {
 
     /**
      * Sendet eine Nachricht an den Spieler, die nur für ihn angezeigt wird
+     *
      * @param msg die Nachricht
      */
     public static void sendMsgToPlayer(String msg) {
@@ -79,6 +84,7 @@ public class Util {
 
     /**
      * Crasht das Spielt
+     *
      * @param reason der Grund, der im Launcher angezeigt wird
      */
     public static void crashGame(String reason) {

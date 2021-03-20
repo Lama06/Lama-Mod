@@ -1,6 +1,7 @@
 package io.github.lama06.lamamod.gui;
 
 import io.github.lama06.lamamod.LamaMod;
+import io.github.lama06.lamamod.util.Color;
 import io.github.lama06.lamamod.util.Util;
 import io.github.lama06.lamamod.version.GithubRelease;
 import net.minecraft.client.MinecraftClient;
@@ -32,10 +33,10 @@ public class NewVersionAvailableScreen extends Screen {
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         this.renderBackground(matrices);
-        drawCenteredText(matrices, this.textRenderer, this.title, this.width / 2, 70, 16777215);
+        drawCenteredText(matrices, this.textRenderer, this.title, this.width / 2, 70, Color.white.toInt());
         drawCenteredText(matrices, this.textRenderer,
                 new LiteralText("Soll diese Version der Mod heruntergeladen werden: " + newestRelease.versionTag + " (aktuelle Version: " + LamaMod.currentModVersion.toVersionTag() + ")?"),
-                this.width / 2, 90, 16777215);
+                this.width / 2, 90, Color.white.toInt());
         super.render(matrices, mouseX, mouseY, delta);
     }
 

@@ -1,8 +1,8 @@
 package io.github.lama06.lamamod.widgets.fps;
 
-import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 import io.github.lama06.lamamod.mixins.MinecraftClientAccessor;
 import io.github.lama06.lamamod.options.Options;
+import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 
 public class FpsWidget extends AbstractTextWidget<FpsWidgetOptions> {
     @Override
