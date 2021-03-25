@@ -1,13 +1,14 @@
 package io.github.lama06.lamamod.widgets.keystrokes;
 
 import io.github.lama06.lamamod.options.Options;
+import io.github.lama06.lamamod.util.Util;
 import io.github.lama06.lamamod.widgets.AbstractTextWidget;
 import net.minecraft.client.util.InputUtil;
 
 public class KeystrokesWidget extends AbstractTextWidget<KeystrokesWidgetOptions> {
     @Override
     protected String getText(KeystrokesWidgetOptions options) {
-        long handle = client.getWindow().getHandle();
+        long handle = Util.getHandle();
         return (InputUtil.isKeyPressed(handle, 32) ? "SPACE" : "     ") + " " +
                 (InputUtil.isKeyPressed(handle, 87) ? "W" : "") + " " +
                 (InputUtil.isKeyPressed(handle, 65) ? "A" : "") + " " +

@@ -15,6 +15,8 @@ import io.github.lama06.lamamod.version.ModVersion;
 import io.github.lama06.lamamod.widgets.coordinates.CoordinatesWidget;
 import io.github.lama06.lamamod.widgets.fps.FpsWidget;
 import io.github.lama06.lamamod.widgets.keystrokes.KeystrokesWidget;
+import io.github.lama06.lamamod.widgets.lightlevel.LightLevelWidget;
+import io.github.lama06.lamamod.widgets.lightlevel.LightLevelWidgetOptions;
 import io.github.lama06.lamamod.widgets.players.OnlinePlayersWidget;
 import io.github.lama06.lamamod.widgets.time.TimeWidget;
 import io.github.lama06.lamamod.widgets.version.VersionWidget;
@@ -39,6 +41,7 @@ public class LamaMod implements ClientModInitializer {
     public TimeWidget timeWidget = new TimeWidget();
     public KeystrokesWidget keystrokesWidget = new KeystrokesWidget();
     public OnlinePlayersWidget onlinePlayersWidget = new OnlinePlayersWidget();
+    public LightLevelWidget lightLevelWidget = new LightLevelWidget();
 
     private void registerListeners() {
         // Shortcuts
@@ -59,6 +62,7 @@ public class LamaMod implements ClientModInitializer {
         HudRenderCallback.EVENT.register(timeWidget);
         HudRenderCallback.EVENT.register(keystrokesWidget);
         HudRenderCallback.EVENT.register(onlinePlayersWidget);
+        HudRenderCallback.EVENT.register(lightLevelWidget);
 
         MessageSentCallback.BEFORE_SENT.register(coordinatesWidget);
         MessageSentCallback.BEFORE_SENT.register(fpsWidget);
@@ -66,6 +70,7 @@ public class LamaMod implements ClientModInitializer {
         MessageSentCallback.BEFORE_SENT.register(timeWidget);
         MessageSentCallback.BEFORE_SENT.register(keystrokesWidget);
         MessageSentCallback.BEFORE_SENT.register(onlinePlayersWidget);
+        MessageSentCallback.BEFORE_SENT.register(lightLevelWidget);
     }
 
     @Override

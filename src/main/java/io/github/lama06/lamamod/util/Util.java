@@ -7,6 +7,8 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ServerInfo;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.crash.CrashReport;
+import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -111,5 +113,13 @@ public class Util {
 
     public static long getHandle() {
         return client.getWindow().getHandle();
+    }
+
+    public static HitResult getTargetedBlock() {
+        return client.cameraEntity.raycast(20D, 0F, false);
+    }
+
+    public static int getLightLevel(BlockPos pos) {
+        return client.world.getLightingProvider().getLight(pos, 0);
     }
 }

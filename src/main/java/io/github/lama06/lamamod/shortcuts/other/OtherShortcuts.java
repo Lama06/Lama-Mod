@@ -10,14 +10,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OtherShortcuts extends AbstractShortcut<ShortcutOptions> {
-    private final Map<String, String> shortcuts = new HashMap<String, String>() {{
-        put("weber", "WeberGMBH");
-        put("l", "lol");
-        put("x", "xD");
-        put("h", "hallo");
-        put(")", ":)");
-        put(":", ":D");
-    }};
+    private static final Map<String, String> shortcuts = new HashMap<>();
+
+    static {
+        shortcuts.put("weber", "WeberGMBH");
+        shortcuts.put("l", "lol");
+        shortcuts.put("x", "xD");
+        shortcuts.put("h", "hallo");
+        shortcuts.put(")", ":)");
+        shortcuts.put(":", ":D");
+    }
 
     @Override
     protected boolean isChatShortcut(ChatMessage msg) {

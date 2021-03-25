@@ -15,7 +15,7 @@ public class LightningShortcut extends AbstractShortcut<ShortcutOptions> {
     @Override
     protected void executeChatShortcut(ChatMessage msg) {
         String playername;
-        if (msg.getArgs().length < 1) {
+        if (msg.getArgs().length == 0 || msg.getArgs().length > 1) {
             playername = Util.getPlayerName();
             Util.sendMsgToPlayer("<Zeus> Ich bin sauer. Du hast mir nicht gesagt, wo der Blitz einschlagen soll!");
         } else {

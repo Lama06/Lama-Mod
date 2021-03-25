@@ -20,7 +20,7 @@ public class ChatMessage {
      * @param text Text der Nachricht
      */
     public ChatMessage(String text) {
-        this.text = text;
+        this.text = text.trim();
     }
 
     /**
