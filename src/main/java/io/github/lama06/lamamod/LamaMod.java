@@ -10,13 +10,14 @@ import io.github.lama06.lamamod.shortcuts.lightning.LightningShortcut;
 import io.github.lama06.lamamod.shortcuts.other.OtherShortcuts;
 import io.github.lama06.lamamod.shortcuts.time.TimeShortcut;
 import io.github.lama06.lamamod.shortcuts.tp.TeleportShortcut;
+import io.github.lama06.lamamod.shortcuts.weather.WeatherShortcut;
 import io.github.lama06.lamamod.version.GithubRelease;
 import io.github.lama06.lamamod.version.ModVersion;
+import io.github.lama06.lamamod.widgets.biome.BiomeWidget;
 import io.github.lama06.lamamod.widgets.coordinates.CoordinatesWidget;
 import io.github.lama06.lamamod.widgets.fps.FpsWidget;
 import io.github.lama06.lamamod.widgets.keystrokes.KeystrokesWidget;
 import io.github.lama06.lamamod.widgets.lightlevel.LightLevelWidget;
-import io.github.lama06.lamamod.widgets.lightlevel.LightLevelWidgetOptions;
 import io.github.lama06.lamamod.widgets.players.OnlinePlayersWidget;
 import io.github.lama06.lamamod.widgets.time.TimeWidget;
 import io.github.lama06.lamamod.widgets.version.VersionWidget;
@@ -34,6 +35,7 @@ public class LamaMod implements ClientModInitializer {
     public CustomChatShortcuts customShortcuts = new CustomChatShortcuts();
     public TeleportShortcut teleportShortcut = new TeleportShortcut();
     public OtherShortcuts otherShortcuts = new OtherShortcuts();
+    public WeatherShortcut weatherShortcut = new WeatherShortcut();
 
     public CoordinatesWidget coordinatesWidget = new CoordinatesWidget();
     public FpsWidget fpsWidget = new FpsWidget();
@@ -42,6 +44,7 @@ public class LamaMod implements ClientModInitializer {
     public KeystrokesWidget keystrokesWidget = new KeystrokesWidget();
     public OnlinePlayersWidget onlinePlayersWidget = new OnlinePlayersWidget();
     public LightLevelWidget lightLevelWidget = new LightLevelWidget();
+    public BiomeWidget biomeWidget = new BiomeWidget();
 
     private void registerListeners() {
         // Shortcuts
@@ -53,6 +56,7 @@ public class LamaMod implements ClientModInitializer {
         MessageSentCallback.BEFORE_SENT.register(customShortcuts);
         MessageSentCallback.BEFORE_SENT.register(teleportShortcut);
         MessageSentCallback.BEFORE_SENT.register(otherShortcuts);
+        MessageSentCallback.BEFORE_SENT.register(weatherShortcut);
 
         // Widgets
 
@@ -63,6 +67,7 @@ public class LamaMod implements ClientModInitializer {
         HudRenderCallback.EVENT.register(keystrokesWidget);
         HudRenderCallback.EVENT.register(onlinePlayersWidget);
         HudRenderCallback.EVENT.register(lightLevelWidget);
+        HudRenderCallback.EVENT.register(biomeWidget);
 
         MessageSentCallback.BEFORE_SENT.register(coordinatesWidget);
         MessageSentCallback.BEFORE_SENT.register(fpsWidget);
@@ -71,6 +76,7 @@ public class LamaMod implements ClientModInitializer {
         MessageSentCallback.BEFORE_SENT.register(keystrokesWidget);
         MessageSentCallback.BEFORE_SENT.register(onlinePlayersWidget);
         MessageSentCallback.BEFORE_SENT.register(lightLevelWidget);
+        MessageSentCallback.BEFORE_SENT.register(biomeWidget);
     }
 
     @Override

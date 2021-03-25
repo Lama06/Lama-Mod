@@ -7,6 +7,7 @@ import io.github.lama06.lamamod.shortcuts.ShortcutOptions;
 import io.github.lama06.lamamod.shortcuts.coordinates.CoordinatesShortcutOptions;
 import io.github.lama06.lamamod.shortcuts.custom.CustomShortcutOptions;
 import io.github.lama06.lamamod.util.Util;
+import io.github.lama06.lamamod.widgets.biome.BiomeWidgetOptions;
 import io.github.lama06.lamamod.widgets.coordinates.CoordinateWidgetOptions;
 import io.github.lama06.lamamod.widgets.fps.FpsWidgetOptions;
 import io.github.lama06.lamamod.widgets.keystrokes.KeystrokesWidgetOptions;
@@ -27,6 +28,7 @@ public class Options {
     public CustomShortcutOptions customShortcuts = new CustomShortcutOptions();
     public ShortcutOptions tpShortcut = new ShortcutOptions();
     public ShortcutOptions otherShortcuts = new ShortcutOptions();
+    public ShortcutOptions weatherShortcut = new ShortcutOptions();
 
     public CoordinateWidgetOptions coordinatesWidget = new CoordinateWidgetOptions();
     public FpsWidgetOptions fpsWidget = new FpsWidgetOptions();
@@ -35,6 +37,7 @@ public class Options {
     public KeystrokesWidgetOptions keystrokesWidget = new KeystrokesWidgetOptions();
     public OnlinePlayersWidgetOptions onlinePlayersWidget = new OnlinePlayersWidgetOptions();
     public LightLevelWidgetOptions lightLevelWidget = new LightLevelWidgetOptions();
+    public BiomeWidgetOptions biomeWidget = new BiomeWidgetOptions();
 
     private static final MinecraftClient client = MinecraftClient.getInstance();
     private static final String optionsFileName = client.runDirectory.getPath() + "/lama-mod-options.json";
