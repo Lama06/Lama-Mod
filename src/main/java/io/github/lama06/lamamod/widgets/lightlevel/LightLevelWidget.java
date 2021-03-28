@@ -11,7 +11,7 @@ public class LightLevelWidget extends AbstractTextWidget<LightLevelWidgetOptions
     protected String getText(LightLevelWidgetOptions options) {
         HitResult hitResult = Util.getTargetedBlock();
 
-        if(hitResult.getType() == HitResult.Type.MISS || hitResult.getType() == HitResult.Type.ENTITY) {
+        if (hitResult.getType() == HitResult.Type.MISS || hitResult.getType() == HitResult.Type.ENTITY) {
             return "";
         } else {
             return Integer.toString(Util.getLightLevel(new BlockPos(hitResult.getPos())));

@@ -7,7 +7,6 @@ import io.github.lama06.lamamod.util.ChatMessage;
 import io.github.lama06.lamamod.util.Util;
 import net.minecraft.entity.player.PlayerEntity;
 
-import java.lang.reflect.Array;
 import java.util.Locale;
 
 /**

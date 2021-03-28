@@ -22,9 +22,9 @@ public class WeatherShortcut extends AbstractShortcut<ShortcutOptions> {
 
     @Override
     protected void executeChatShortcut(ChatMessage msg) {
-        if(isClearShortcut(msg)) {
+        if (isClearShortcut(msg)) {
             Util.sendMsgToChat("/weather clear");
-        } else if(isRainShortcut(msg)) {
+        } else if (isRainShortcut(msg)) {
             Util.sendMsgToChat("/weather rain");
         }
     }
