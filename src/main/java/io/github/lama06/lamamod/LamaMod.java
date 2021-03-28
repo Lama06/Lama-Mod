@@ -19,6 +19,7 @@ import io.github.lama06.lamamod.widgets.fps.FpsWidget;
 import io.github.lama06.lamamod.widgets.keystrokes.KeystrokesWidget;
 import io.github.lama06.lamamod.widgets.lightlevel.LightLevelWidget;
 import io.github.lama06.lamamod.widgets.players.OnlinePlayersWidget;
+import io.github.lama06.lamamod.widgets.targetedblock.TargetedBlockWidget;
 import io.github.lama06.lamamod.widgets.time.TimeWidget;
 import io.github.lama06.lamamod.widgets.version.VersionWidget;
 import net.fabricmc.api.ClientModInitializer;
@@ -45,6 +46,7 @@ public class LamaMod implements ClientModInitializer {
     public OnlinePlayersWidget onlinePlayersWidget = new OnlinePlayersWidget();
     public LightLevelWidget lightLevelWidget = new LightLevelWidget();
     public BiomeWidget biomeWidget = new BiomeWidget();
+    public TargetedBlockWidget targetedBlockWidget = new TargetedBlockWidget();
 
     private void registerListeners() {
         // Shortcuts
@@ -68,6 +70,7 @@ public class LamaMod implements ClientModInitializer {
         HudRenderCallback.EVENT.register(onlinePlayersWidget);
         HudRenderCallback.EVENT.register(lightLevelWidget);
         HudRenderCallback.EVENT.register(biomeWidget);
+        HudRenderCallback.EVENT.register(targetedBlockWidget);
 
         MessageSentCallback.BEFORE_SENT.register(coordinatesWidget);
         MessageSentCallback.BEFORE_SENT.register(fpsWidget);
@@ -77,6 +80,7 @@ public class LamaMod implements ClientModInitializer {
         MessageSentCallback.BEFORE_SENT.register(onlinePlayersWidget);
         MessageSentCallback.BEFORE_SENT.register(lightLevelWidget);
         MessageSentCallback.BEFORE_SENT.register(biomeWidget);
+        MessageSentCallback.BEFORE_SENT.register(targetedBlockWidget);
     }
 
     @Override

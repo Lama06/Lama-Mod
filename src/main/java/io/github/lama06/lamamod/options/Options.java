@@ -13,6 +13,7 @@ import io.github.lama06.lamamod.widgets.fps.FpsWidgetOptions;
 import io.github.lama06.lamamod.widgets.keystrokes.KeystrokesWidgetOptions;
 import io.github.lama06.lamamod.widgets.lightlevel.LightLevelWidgetOptions;
 import io.github.lama06.lamamod.widgets.players.OnlinePlayersWidgetOptions;
+import io.github.lama06.lamamod.widgets.targetedblock.TargetedBlockWidgetOptions;
 import io.github.lama06.lamamod.widgets.time.TimeWidgetOptions;
 import io.github.lama06.lamamod.widgets.version.VersionWidgetOptions;
 import net.minecraft.client.MinecraftClient;
@@ -38,6 +39,7 @@ public class Options {
     public OnlinePlayersWidgetOptions onlinePlayersWidget = new OnlinePlayersWidgetOptions();
     public LightLevelWidgetOptions lightLevelWidget = new LightLevelWidgetOptions();
     public BiomeWidgetOptions biomeWidget = new BiomeWidgetOptions();
+    public TargetedBlockWidgetOptions targetedBlockWidget = new TargetedBlockWidgetOptions();
 
     private static final MinecraftClient client = MinecraftClient.getInstance();
     private static final String optionsFileName = client.runDirectory.getPath() + "/lama-mod-options.json";

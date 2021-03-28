@@ -38,6 +38,8 @@ public abstract class AbstractTextWidget<T extends TextWidgetOptions> extends Co
                         Util.sendMsgToPlayer("Der Prefix wird nun angezeigt");
                     }
                     setWidgetOptions(options);
+                } else if (args[0].equals("tochat")) {
+                    Util.sendMsgToChat(getPrefix() + getText(options));
                 }
             }
         }
