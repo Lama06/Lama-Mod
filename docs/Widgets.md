@@ -75,3 +75,9 @@ Zeigt den Namen des Biomes an, in dem du dich befindest
 
 Name: `LightLevelWidget`  
 Zeigt das Light Level des Blocks an, den man anguckt
+
+## TargetedBlock Widget
+
+Name: `TargetedBlockWidget`  
+Zeigt die Koordinaten des Blocks an, den man anguckt
+
