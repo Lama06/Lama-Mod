@@ -12,7 +12,10 @@ public class VoteCommand extends AbstractCommand implements ServerTickCallback {
     @Override
     protected boolean isCommand(ServerPlayerEntity player, ChatMessage msg) {
         String text = msg.getText();
-        return text.startsWith("abstimmung") || text.startsWith("ja") || text.startsWith("nein") || text.startsWith("ne");
+        if(text.startsWith("abstimmung")) {
+            return true;
+        }
+        return currentVote != null && (text.startsWith("ja") || text.startsWith("nein") || text.startsWith("ne"));
     }
 
     @Override
