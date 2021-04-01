@@ -5,7 +5,7 @@ import io.github.lama06.lamamod.common.version.ModVersion;
 import net.fabricmc.api.ModInitializer;
 
 public class LamaMod implements ModInitializer {
-    public static final ModVersion currentModVersion = new ModVersion(1, 6, 2);
+    public static final ModVersion currentModVersion = new ModVersion(1, 6, 4);
 
     @Override
     public void onInitialize() {
