@@ -16,14 +16,21 @@
   "license": "MIT",
   "icon": "assets/lamamod/icon.png",
 
-  "environment": "client",
+  "environment": "*",
   "entrypoints": {
+    "main": [
+      "io.github.lama06.lamamod.common.LamaMod"
+    ],
     "client": [
-      "io.github.lama06.lamamod.LamaMod"
+      "io.github.lama06.lamamod.client.ClientMod"
+    ],
+    "server": [
+      "io.github.lama06.lamamod.server.ServerMod"
     ]
   },
   "mixins": [
-    "lamamod.mixins.json"
+    "lamamod.client.mixins.json",
+    "lamamod.server.mixins.json"
   ],
 
   "depends": {

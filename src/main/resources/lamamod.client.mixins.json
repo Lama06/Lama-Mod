@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.lama06.lamamod.client.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "TitleScreenMixin",
+    "MultiplayerScreenMixin",
+    "ChatScreenMixin",
+    "InGameHudMixin",
+    "MinecraftClientAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
