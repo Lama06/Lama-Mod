@@ -25,7 +25,9 @@ public class VoteCommand extends AbstractCommand implements ServerTickCallback {
                 currentVote = new Vote(player.getServer(), player.getName().asString(), question, (yes, no) -> currentVote = null);
             }
         } else {
-            currentVote.onChatMessage(player, msg);
+            if(currentVote != null) {
+                currentVote.onChatMessage(player, msg);
+            }
         }
     }
 
