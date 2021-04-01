@@ -16,7 +16,7 @@ Alle Widgets haben die folgenden Einstellungen:
 - `<Name des Widgets> x <Zahl>` Ändert den Wert der X-Koordinate des Widgets
 - `<Name des Widgets> y <Zahl>` Ändert den Wert der Y-Koordinate des Widgets
 
-Alle Widgets, die Text anzeigen haben außerdem die folgenden Einstellungen:
+Alle Widgets, die Text anzeigen, haben außerdem die folgenden Einstellungen:
 
 - `<Name des Widgets> prefix` Zeigt den Prefix den Widgets an oder versteckt ihn
 - `<Name des Widgets> color` Gibt die aktuelle Farbe des Widgets zurück
